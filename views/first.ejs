@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>welcome</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  </head>
+  <body>
+  	<div class="container-fluid" role="main" >
+  		<div class="row" style="height: 100px">
+  			<div class="col-sm-12" >
+  		  	<h3 style="text-align: center; color: black" ><b>Welcome To Online Quiz Portal</b></h3>
+  		  </div>
+  		</div>
+  		<div class="col-sm-12" style="background-color: lightblue; height: 150px">
+	  		<div class="col-sm-1" >		    	
+	  		</div>
+	  		<div class="col-sm-12" >
+	  			<h2 style="text-align: center; color: white"><b>Enter Your Name and click start</b></h2>
+	  		</div>
+  			<div class="col-sm-12" >
+  				<center>
+  					<input class="form-control" type="text" name="name" id="input1" style="width: 700px" required></input> 
+  					<button class="btn btn-primary " id="button1" type="submit" >Start quiz</button>
+  				</center>
+  			</div>   	  		
+	  	</div>
+      
+  	</div>
+    <h1 id="demo" style="color: red; text-align: center;"></h1>   		
+  	<script type="text/javascript">
+			$('#button1').click(function(e){
+		    e.preventDefault();
+			    var user = {
+		        name: $('#input1').val(),
+		      };
+          console.log(name)
+          			
+  			   // console.log(url);
+    			  $.ajax({
+
+    		      url : '/quiz',
+    		      type: 'post',
+    		      data : user,
+    		      success : function(result){   
+              if(result.name == ""){
+            $('#demo').html('Plz enter you name')
+          } else{            
+    		        // console.log(result);
+                window.location.href = "/quiz/"+result.id
+              }
+    		      }
+    			  }); 
+            
+			});
+  	</script>  
+  </body>
+</html>

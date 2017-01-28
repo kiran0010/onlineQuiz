@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>student Data</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  </head>
+	<body>
+		<p>
+		  <table class="table table-bordered">
+		    <thead bgcolor="lightblue">
+		      <tr>
+		        <th class="text-center">SlNo</th>
+		        <th class="text-center">Name</th>
+		        <th class="text-center">Score</th>
+		        <th class="text-center">Date</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <% dboard.forEach(function(e,i){ %>
+		      <%if(e._id == id){%>
+		      <tr style="background-color: lightgreen">
+		      	<td class="text-center"><%= i %></td>
+		      	<td class="text-center"><%= e.name %></td>
+		      	<td class="text-center"><%= e.score %></td>
+		      	<td class="text-center"><%= e.date %></td>
+					</tr>
+					<%} else {%>
+		      <tr>
+		      	<td class="text-center"><%= i %></td>
+		      	<td class="text-center"><%= e.name %></td>
+		      	<td class="text-center"><%= e.score %></td>
+		      	<td class="text-center"><%= e.date %></td>
+					</tr>
+					<%}%>
+					<%})%>
+		    </tbody>
+		  </table>
+		</p>
+</html>
